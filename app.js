@@ -60,3 +60,13 @@ function checkScroll() {
 }
 window.addEventListener("scroll", checkScroll);
 window.addEventListener("load", checkScroll);
+
+//MENU
+const menu = document.querySelector(".menu__backdrop");
+function openMenu() {
+  menu.classList.add("menu--open");
+}
+
+function closeMenu() {
+  menu.classList.remove("menu--open");
+}

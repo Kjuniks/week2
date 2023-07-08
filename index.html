@@ -29,6 +29,9 @@
               <li><a href="#" class="nav__link--primary">Sign Up</a></li>
             </ul>
           </ul>
+          <button onclick="openMenu()" class="nav__menu--btn">
+            <i class="fa-solid fa-bars nav__menu"></i>
+          </button>
         </nav>
         <header>
           <div class="header__desc">
@@ -736,5 +739,30 @@
         />
       </svg>
     </footer>
+    <div class="menu__backdrop">
+      <button class="btn__menu--close" onclick="closeMenu()">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul class="menu__links">
+        <li class="menu__list">
+          <a href="#" class="menu__link">About</a>
+        </li>
+        <li class="menu__list">
+          <a href="#" class="menu__link">Blog</a>
+        </li>
+        <li class="menu__list">
+          <a href="#" class="menu__link">Pricing</a>
+        </li>
+        <li class="menu__list">
+          <a href="#" class="menu__link">Contact Us</a>
+        </li>
+        <li class="menu__list">
+          <a href="#" class="menu__link">Login</a>
+        </li>
+        <li class="menu__list">
+          <a href="#" class="menu__link--primary">Sign Up</a>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
