@@ -34,6 +34,8 @@ body {
     rgb(245, 101, 101) 0%,
     rgb(254, 178, 178) 100%
   );
+
+  overflow-x: hidden;
 }
 
 a {
@@ -42,6 +44,56 @@ a {
 
 li {
   list-style-type: none;
+}
+
+section {
+  position: relative;
+  opacity: 0;
+  transition: all 500ms ease;
+}
+
+section:nth-child(odd) {
+  transform: translateX(-100%);
+}
+
+section:nth-child(even) {
+  transform: translateX(100%);
+}
+
+section.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+svg {
+  overflow: visible;
+  z-index: -100;
+}
+
+path {
+  scale: 0.5;
+}
+
+.path--right {
+  position: absolute;
+  bottom: 0;
+  right: -50px;
+}
+
+.path--left {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+}
+
+.color--pink {
+  opacity: 0.3;
+  fill: #ffb4bc;
+}
+
+.color--green {
+  opacity: 0.3;
+  fill: #b4ffc6;
 }
 
 .container {
@@ -360,6 +412,7 @@ header {
 }
 
 .quality-work__img--wrapper {
+  position: relative;
   width: 50%;
   border: 1px solid var(--gray-100);
   border-radius: 4px;
@@ -369,14 +422,34 @@ header {
   width: 100%;
 }
 
+.quality-work__dots-svg {
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  scale: 0.15;
+  fill: var(--primary-color);
+  z-index: -1;
+}
 /*STEPS*/
 
 .steps__img--wrapper {
+  position: relative;
   width: 50%;
 }
 
 .steps__img {
   width: 100%;
+}
+
+.steps__dots-svg {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateY(-50%);
+  scale: 0.15;
+  fill: var(--primary-color);
+  z-index: -1;
+  opacity: 0.1;
 }
 
 .steps__desc--wrapper {
@@ -846,6 +919,8 @@ header {
 }
 
 .faq__footer {
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -860,6 +935,7 @@ header {
   color: white;
   font-size: 30px;
   width: 40%;
+  z-index: 1;
 }
 
 .btn--orange {
@@ -882,10 +958,30 @@ header {
   color: var(--primary-color);
 }
 
+.faq__footer > .circle {
+  position: absolute;
+  bottom: -80px;
+  left: 50px;
+  fill: var(--primary-color);
+  filter: brightness(0.5);
+  opacity: 0.3;
+}
+
+.faq__footer > .circle--top {
+  position: absolute;
+  top: -80px;
+  right: 0;
+  fill: var(--primary-color);
+  filter: brightness(0.5);
+  opacity: 0.3;
+}
+
 /* FOOTER */
 
 footer {
   background-color: var(--primary-color);
+  position: relative;
+  overflow: hidden;
 }
 
 .footer__sections--wrapper {
@@ -949,8 +1045,8 @@ footer {
 }
 
 .footer__img--wrapper {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   display: flex;
 }
 
@@ -962,7 +1058,7 @@ footer {
   font-size: 20px;
   color: white;
   font-weight: 800;
-  margin-left: 12px;
+  margin-left: 8px;
 }
 
 .footer__copy {
@@ -993,4 +1089,22 @@ footer {
 
 .fa-brands {
   color: #242424;
+}
+
+footer > .circle {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  fill: var(--primary-color);
+  filter: brightness(0.5);
+  opacity: 0.3;
+}
+
+footer > .circle--bottom {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  fill: var(--primary-color);
+  filter: brightness(0.5);
+  opacity: 0.3;
 }

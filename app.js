@@ -1,8 +1,8 @@
 const testimonials = document.querySelectorAll(".testimonial");
 
-let counter = 0;
+let currentTestimonialIndex = 0;
 
-function showT(index) {
+function showTestimonial(index) {
   for (let i = 0; i < testimonials.length; i++) {
     testimonials[i].classList.remove("testimonial--active");
   }
@@ -10,23 +10,24 @@ function showT(index) {
 }
 
 function nextTestimonial() {
-  if (counter >= testimonials.length - 1) {
-    counter = 0;
+  if (currentTestimonialIndex >= testimonials.length - 1) {
+    currentTestimonialIndex = 0;
   } else {
-    counter += 1;
+    currentTestimonialIndex += 1;
   }
-  showT(counter);
+  showTestimonial(currentTestimonialIndex);
 }
 
 function prevTestimonial() {
-  if (counter <= 0) {
-    counter = testimonials.length - 1;
+  if (currentTestimonialIndex <= 0) {
+    currentTestimonialIndex = testimonials.length - 1;
   } else {
-    counter -= 1;
+    currentTestimonialIndex -= 1;
   }
-  showT(counter);
-  console.log(counter);
+  showTestimonial(currentTestimonialIndex);
 }
+
+//FAQ
 
 const answers = document.querySelectorAll(".question__answer");
 const arrows = document.querySelectorAll(".fa-angle-down");
@@ -43,3 +44,19 @@ function showAnswer(event) {
   answers[index].classList.add("question__answer--visible");
   arrows[index].classList.add("rotate");
 }
+
+//Section reveal
+
+const sections = document.querySelectorAll("section");
+
+function checkScroll() {
+  sections.forEach((section, index) => {
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop <= window.innerHeight / 2) {
+      section.classList.add("show");
+    }
+  });
+}
+window.addEventListener("scroll", checkScroll);
+window.addEventListener("load", checkScroll);
